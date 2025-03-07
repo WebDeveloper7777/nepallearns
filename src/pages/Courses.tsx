@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -7,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import CourseFilter from "@/components/courses/CourseFilter";
 import CourseGrid from "@/components/courses/CourseGrid";
 import { courses, categories } from "@/lib/data";
-import { Course, Category } from "@/types";
+import { Course } from "@/types";
 
 const Courses = () => {
   const [searchParams] = useSearchParams();
@@ -99,6 +98,21 @@ const Courses = () => {
     setFilteredCourses(result);
   }, [activeCategory, selectedLevel, selectedLanguage, priceRange, sortBy]);
 
+  const handleFilter = (filters: any) => {
+    if (filters.categories.length) {
+      setActiveCategory(filters.categories[0]);
+    }
+    if (filters.levels.length) {
+      setSelectedLevel(filters.levels[0]);
+    }
+    if (filters.languages.length) {
+      setSelectedLanguage(filters.languages[0]);
+    }
+    setPriceRange(filters.priceRange);
+  };
+
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -122,17 +136,10 @@ const Courses = () => {
               {/* Sidebar Filters */}
               <div className="w-full md:w-1/4 lg:w-1/5">
                 <CourseFilter 
-                  categories={categories}
-                  activeCategory={activeCategory}
-                  setActiveCategory={setActiveCategory}
-                  selectedLevel={selectedLevel}
-                  setSelectedLevel={setSelectedLevel}
-                  selectedLanguage={selectedLanguage}
-                  setSelectedLanguage={setSelectedLanguage}
-                  priceRange={priceRange}
-                  setPriceRange={setPriceRange}
-                  sortBy={sortBy}
-                  setSortBy={setSortBy}
+                  onFilter={handleFilter}
+                  isOpen={isFilterOpen}
+                  onToggle={() => setIsFilterOpen(!isFilterOpen)}
+                  className="sticky top-24"
                 />
               </div>
               

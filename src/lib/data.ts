@@ -1,4 +1,3 @@
-
 import { Category, Course, Instructor } from "@/types";
 
 export const instructors: Instructor[] = [
@@ -264,4 +263,57 @@ export const courses: Course[] = [
     rating: 4.6,
     enrolledStudents: 320,
   },
+];
+
+export const reviews = [
+  {
+    id: "1",
+    user: {
+      name: "Aarav Poudel",
+      avatar: "https://i.pravatar.cc/150?img=10",
+    },
+    rating: 5,
+    date: "March 15, 2024",
+    comment: "Excellent course! The content is well-structured and the instructor explains complex concepts clearly. The mix of Nepali and English instruction really helped my understanding."
+  },
+  {
+    id: "2",
+    user: {
+      name: "Priya Sharma",
+      avatar: "https://i.pravatar.cc/150?img=11",
+    },
+    rating: 4,
+    date: "March 10, 2024",
+    comment: "Very practical course with good examples. The programming assignments were challenging but helped reinforce the concepts."
+  },
+  {
+    id: "3",
+    user: {
+      name: "Bikash KC",
+      avatar: "https://i.pravatar.cc/150?img=12",
+    },
+    rating: 5,
+    date: "March 5, 2024",
+    comment: "The course material is up-to-date and relevant to the Nepali tech industry. Great value for money!"
+  },
+  {
+    id: "4",
+    user: {
+      name: "Sarita Thapa",
+      avatar: "https://i.pravatar.cc/150?img=13",
+    },
+    rating: 4,
+    date: "February 28, 2024",
+    comment: "The instructor's teaching style is engaging and the course projects are well-designed. Would recommend to others."
+  },
+  {
+    id: "5",
+    user: {
+      name: "Dipesh Gurung",
+      avatar: "https://i.pravatar.cc/150?img=14",
+    },
+    rating: 5,
+    date: "February 25, 2024",
+    comment: "Best programming course I've taken so far. The hands-on exercises really helped cement my understanding."
+  }
 ];
